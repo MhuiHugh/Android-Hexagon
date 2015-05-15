@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 1.控件名称   2.控件各个属性定义 3.属性类别系统定义4.属性值分别为文字，文字大小，背景色，图片 -->
+    <declare-styleable name="HexagonView">
+        <attr name="text" format="string"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="textColor" format="color"/>
+        <attr name="backColor" format="color"/>
+        <attr name="src" format="reference"/>
+    </declare-styleable>
+
+
+
+</resources>

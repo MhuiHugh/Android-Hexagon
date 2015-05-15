@@ -1,0 +1,78 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             xmlns:sec="http://schemas.android.com/apk/res/com.mh.example.polygon"
+             android:id="@+id/container"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@drawable/community_bg"
+             tools:context="cn.com.mh.example.polygon"
+             tools:ignore="MergeRootFrame">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+        <TextView
+                android:layout_width="@dimen/dip_100"
+                android:layout_height="@dimen/dip_100"
+                android:id="@+id/center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/sp_30"
+                android:text="@string/center"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"/>
+
+        <com.mh.widget.HexagonView
+                android:layout_width="@dimen/dip_100"
+                android:layout_height="@dimen/dip_100"
+                android:id="@+id/hexagon_hello"
+                android:layout_above="@+id/center"
+                sec:text="@string/hello"
+                android:layout_centerHorizontal="true"/>
+
+        <com.mh.widget.HexagonView
+                android:layout_width="@dimen/dip_100"
+                android:layout_height="@dimen/dip_100"
+                android:id="@+id/hexagon_car"
+                sec:src="@drawable/home_car"
+                android:layout_alignBottom="@+id/center"
+                android:layout_marginLeft="-10dp"
+                android:layout_toEndOf="@+id/center"
+                android:layout_marginBottom="@dimen/dip_50"/>
+
+        <com.mh.widget.HexagonView
+                android:layout_width="@dimen/dip_100"
+                android:layout_height="@dimen/dip_100"
+                android:id="@+id/three"
+                android:layout_alignTop="@+id/center"
+                android:layout_marginLeft="-10dp"
+                android:layout_toEndOf="@+id/center"
+                android:layout_marginTop="@dimen/dip_50"/>
+
+        <com.mh.widget.HexagonView
+                android:layout_width="@dimen/dip_100"
+                android:layout_height="@dimen/dip_100"
+                android:id="@+id/four"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/center" />
+
+        <com.mh.widget.HexagonView
+                android:layout_width="@dimen/dip_100"
+                android:layout_height="@dimen/dip_100"
+                android:id="@+id/five"
+                android:layout_marginRight="-10dp"
+                android:layout_alignTop="@+id/center"
+                android:layout_marginTop="@dimen/dip_50"
+                android:layout_toStartOf="@+id/center"/>
+
+        <com.mh.widget.HexagonView
+                android:layout_width="@dimen/dip_100"
+                android:layout_height="@dimen/dip_100"
+                android:layout_marginRight="-10dp"
+                android:id="@+id/six"
+                android:layout_alignBottom="@+id/center"
+                android:layout_toStartOf="@+id/center"
+                android:layout_marginBottom="@dimen/dip_50"/>
+
+    </RelativeLayout>
+</FrameLayout>

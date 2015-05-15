@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dip_10">10dip</dimen>
+    <dimen name="dip_50">50dip</dimen>
+    <dimen name="dip_90">90dip</dimen>
+    <dimen name="dip_100">100dip</dimen>
+    <dimen name="dip_130">130dip</dimen>
+    <dimen name="dip_200">200dip</dimen>
+
+    <dimen name="sp_16">16sp</dimen>
+    <dimen name="sp_22">22sp</dimen>
+    <dimen name="sp_30">30sp</dimen>
+</resources>
