@@ -1,10 +1,13 @@
 一：自定义六边形效果图
- ![image](https://github.com/MhuiAbner/Android-Hexagon/screenshots/screen.gif)
+ ![image](https://github.com/MhuiAbner/Android-Hexagon/blob/master/screenshots/screen.gif)
+
  二.核心算法
- 平面内一个坐标点是否在多边形内判断，使用射线法判断。从目标点出发引一条射线，看这条射线和多边形所有边的交点数目。如果是奇数个交点，则说明点在多边形内部；如果是偶数个交点，则说明在外部。
- ![image](https://github.com/MhuiAbner/Android-Hexagon/screenshots/heat.jpeg)
+ 平面内一个坐标点是否在多边形内判断，使用射线法判断。从目标点出发引一条射线，看这条射线和多边形所有边的交点数目。
+ 如果是奇数个交点，则说明点在多边形内部；如果是偶数个交点，则说明在外部。
+ ![image](https://github.com/MhuiAbner/Android-Hexagon/blob/master/screenshots/heat.jpeg)
+
  算法图解：
-  ![image](https://github.com/MhuiAbner/Android-Hexagon/screenshots/algorithm.jpeg)
+  ![image](https://github.com/MhuiAbner/Android-Hexagon/blob/master/screenshots/algorithm.jpeg)
 参考代码：
  int pnpoly(int nvert, float *vertx, float *verty, float testx, float testy)
  {
@@ -17,8 +20,9 @@
    }
    return c;
  }
+
  更多参考信息：
- http://www.cnblogs.com/luxiaoxun/p/3722358.html
+ http://www.cnblogs.com/luxiaoxun/p/3722358.html   
  http://www.html-js.com/article/1528
  http://www.cppblog.com/w2001/archive/2007/09/06/31694.html
 
