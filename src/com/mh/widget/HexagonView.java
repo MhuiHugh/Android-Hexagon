@@ -23,6 +23,11 @@ import com.mh.example.polygon.R;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * @author Mhui
+ * 自定义六边形控件
+ */
 @SuppressLint("DrawAllocation")
 public class HexagonView extends View {
 

@@ -8,6 +8,10 @@ import android.widget.Toast;
 import com.mh.widget.HexagonView;
 
 
+/**
+ * @author Mhui
+ * 演示自定义六边形点击事件监听
+ */
 public class MainActivity extends Activity implements HexagonView.OnHexagonViewClickListener{
     private final String TAG="MainActivity";
 
@@ -33,7 +37,7 @@ public class MainActivity extends Activity implements HexagonView.OnHexagonViewC
                 Toast.makeText(this,"Hello",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.hexagon_car:
-
+                Toast.makeText(this,"Car",Toast.LENGTH_SHORT).show();
                 break;
         }
     }
