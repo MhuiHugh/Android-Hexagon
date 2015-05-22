@@ -49,8 +49,8 @@ public class HexagonView extends View {
     // 判断点是否在多边形内
     Lasso lasso;// 核心判断类
     List<PointF> list;
-
     ShapeDrawable mDrawable;
+    Animation scaleAnimation,endAnimation;
 
     public HexagonView(Context context) {
         super(context);
@@ -85,7 +85,7 @@ public class HexagonView extends View {
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        // Log.v(TAG, "onDraw()");
+         Log.v(TAG, "onDraw()");
         vWidth = getWidth();
         vHeight = getHeight();
         // Log.v(TAG, vWidth + "--" + vHeight);
@@ -184,6 +184,51 @@ public class HexagonView extends View {
                 canvas.drawText(text, vWidth / 2, textBaseY, paint1);
             }
         }
+        //六边形顶点位置
+        if (list == null) {
+            list = new ArrayList<PointF>();
+        } else {
+            list.clear();
+        }
+        PointF pf = new PointF();
+        pf.set(vWidth, vHeight / 2);
+        list.add(pf);
+        PointF pf1 = new PointF();
+        pf1.set(vWidth - a, vHeight - c);
+        list.add(pf1);
+        PointF pf2 = new PointF();
+        pf2.set(vWidth - a - vLenght, vHeight - c);
+        list.add(pf2);
+        PointF pf3 = new PointF();
+        pf3.set(0, vHeight / 2);
+        list.add(pf3);
+        PointF pf4 = new PointF();
+        pf4.set(a, c);
+        list.add(pf4);
+        PointF pf5 = new PointF();
+        pf5.set(vWidth - a, c);
+        list.add(pf5);
+        if (pf != null) {
+            pf = null;
+            pf1 = null;
+            pf2 = null;
+            pf3 = null;
+            pf4 = null;
+            pf5 = null;
+        }
+        //缩放动画
+        float start = 1.0f;
+        float end = 0.9f;
+        scaleAnimation = new ScaleAnimation(start, end, start, end,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
+                0.5f);
+        scaleAnimation.setDuration(30);
+        scaleAnimation.setFillAfter(true);
+        endAnimation = new ScaleAnimation(end, start, end, start,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
+                0.5f);
+        endAnimation.setDuration(30);
+        endAnimation.setFillAfter(true);
     }
 
     /**
@@ -244,55 +289,11 @@ public class HexagonView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-
-
-        if (list == null) {
-            list = new ArrayList<PointF>();
-        } else {
-            list.clear();
-        }
-        PointF pf = new PointF();
-        pf.set(vWidth, vHeight / 2);
-        list.add(pf);
-        PointF pf1 = new PointF();
-        pf1.set(vWidth - a, vHeight - c);
-        list.add(pf1);
-        PointF pf2 = new PointF();
-        pf2.set(vWidth - a - vLenght, vHeight - c);
-        list.add(pf2);
-        PointF pf3 = new PointF();
-        pf3.set(0, vHeight / 2);
-        list.add(pf3);
-        PointF pf4 = new PointF();
-        pf4.set(a, c);
-        list.add(pf4);
-        PointF pf5 = new PointF();
-        pf5.set(vWidth - a, c);
-        list.add(pf5);
-        if (pf != null) {
-            pf = null;
-            pf1 = null;
-            pf2 = null;
-            pf3 = null;
-            pf4 = null;
-            pf5 = null;
-        }
+        Log.i(TAG,"onTouchEvent");
         if (lasso == null) {
             lasso = new Lasso(list);
         }
 
-        float start = 1.0f;
-        float end = 0.9f;
-        Animation scaleAnimation = new ScaleAnimation(start, end, start, end,
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-                0.5f);
-        scaleAnimation.setDuration(30);
-        scaleAnimation.setFillAfter(true);
-        Animation endAnimation = new ScaleAnimation(end, start, end, start,
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-                0.5f);
-        endAnimation.setDuration(30);
-        endAnimation.setFillAfter(true);
         boolean islasso = false;
         // 判断是否点中
         if (lasso.contains(event.getX(), event.getY())) {
@@ -315,12 +316,7 @@ public class HexagonView extends View {
                     if (listener != null) {
                         listener.onClick(this);
                     }
-                    this.startAnimation(endAnimation);
-                    invalidate();
                 }
-                break;
-            case MotionEvent.ACTION_CANCEL:
-                Log.v(TAG, "action cancel!");
                 this.startAnimation(endAnimation);
                 invalidate();
                 break;
