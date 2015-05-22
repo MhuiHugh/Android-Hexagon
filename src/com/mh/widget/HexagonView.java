@@ -77,6 +77,20 @@ public class HexagonView extends View {
                 color.holo_blue_light);
         // 回收资源，一定要调用
         typeA.recycle();
+        //-------
+        //缩放动画
+        float start = 1.0f;
+        float end = 0.9f;
+        scaleAnimation = new ScaleAnimation(start, end, start, end,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
+                0.5f);
+        scaleAnimation.setDuration(30);
+        scaleAnimation.setFillAfter(true);
+        endAnimation = new ScaleAnimation(end, start, end, start,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
+                0.5f);
+        endAnimation.setDuration(30);
+        endAnimation.setFillAfter(true);
     }
 
     /**
@@ -216,19 +230,6 @@ public class HexagonView extends View {
             pf4 = null;
             pf5 = null;
         }
-        //缩放动画
-        float start = 1.0f;
-        float end = 0.9f;
-        scaleAnimation = new ScaleAnimation(start, end, start, end,
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-                0.5f);
-        scaleAnimation.setDuration(30);
-        scaleAnimation.setFillAfter(true);
-        endAnimation = new ScaleAnimation(end, start, end, start,
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-                0.5f);
-        endAnimation.setDuration(30);
-        endAnimation.setFillAfter(true);
     }
 
     /**
