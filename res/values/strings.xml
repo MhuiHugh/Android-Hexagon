@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Polygon</string>
+    <string name="app_name">Hexagon</string>
     <string name="ok">确定</string>
     <string name="hello">Hello</string>
     <string name="hexagon">六边形</string>

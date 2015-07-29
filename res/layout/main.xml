@@ -46,6 +46,8 @@
                 android:id="@+id/three"
                 android:layout_alignTop="@+id/center"
                 android:layout_marginLeft="-10dp"
+                sec:text="@string/app_name"
+                sec:textSize="@dimen/sp_22"
                 android:layout_toEndOf="@+id/center"
                 android:layout_marginTop="@dimen/dip_50"/>
 

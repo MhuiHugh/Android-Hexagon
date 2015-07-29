@@ -31,7 +31,8 @@ import java.util.List;
 @SuppressLint("DrawAllocation")
 public class HexagonView extends View {
 
-    private final String TAG = "HexagonView";
+    private final String TAG = this.getClass().getSimpleName();
+    boolean islasso = false;//是否点中多边形
 
     // 六边形属性
     private int vWidth, vHeight, vLenght;
@@ -47,7 +48,7 @@ public class HexagonView extends View {
     // 监听
     private OnHexagonViewClickListener listener;
     // 判断点是否在多边形内
-    Lasso lasso;// 核心判断类
+    LassoUtils lasso;// 核心判断类
     List<PointF> list;
     ShapeDrawable mDrawable;
     Animation scaleAnimation,endAnimation;
@@ -99,7 +100,8 @@ public class HexagonView extends View {
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-         Log.v(TAG, "onDraw()");
+        // Log.v(TAG, "onDraw()");
+
         vWidth = getWidth();
         vHeight = getHeight();
         // Log.v(TAG, vWidth + "--" + vHeight);
@@ -190,7 +192,7 @@ public class HexagonView extends View {
             float fontHeight = fontMetrics.bottom - fontMetrics.top;
             // 画字体
             if (src != null) {// 如果有图片文字在底部
-//                Log.v(TAG, "src not null!");
+             //Log.v(TAG, "src not null!");
                 canvas.drawText(text, vWidth / 2, 2 * b + c - 3, paint1);
             } else {// 没有图片时文字居于视图中央
                 float textBaseY = vHeight - (vHeight - fontHeight) / 2
@@ -222,6 +224,10 @@ public class HexagonView extends View {
         PointF pf5 = new PointF();
         pf5.set(vWidth - a, c);
         list.add(pf5);
+
+        lasso = LassoUtils.getInstance();
+        lasso.setLassoList(list);
+
         if (pf != null) {
             pf = null;
             pf1 = null;
@@ -229,7 +235,7 @@ public class HexagonView extends View {
             pf3 = null;
             pf4 = null;
             pf5 = null;
-        }
+         }
     }
 
     /**
@@ -291,26 +297,28 @@ public class HexagonView extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.i(TAG,"onTouchEvent");
-        if (lasso == null) {
-            lasso = new Lasso(list);
-        }
-
-        boolean islasso = false;
-        // 判断是否点中
-        if (lasso.contains(event.getX(), event.getY())) {
-            islasso = true;
-        } else {
-            Log.v(TAG, "未点中多边形！");
-            islasso = false;
-        }
-
         // 事件处理
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                // 判断是否点中
+                if (lasso.contains(event.getX(), event.getY())) {
+                    islasso = true;
+                } else {
+                    Log.v(TAG, "未点中多边形！");
+                    islasso = false;
+                }
                 if (islasso) {
                     this.startAnimation(scaleAnimation);
                 }
-                invalidate();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                // 判断是否滑出
+                if (lasso.contains(event.getX(), event.getY())) {
+                    islasso = true;
+                } else {
+                    Log.v(TAG, "未点中多边形！");
+                    islasso = false;
+                }
                 break;
             case MotionEvent.ACTION_UP:
                 if (islasso) {
@@ -319,7 +327,7 @@ public class HexagonView extends View {
                     }
                 }
                 this.startAnimation(endAnimation);
-                invalidate();
+                islasso=false;
                 break;
         }
         return true;
@@ -335,67 +343,5 @@ public class HexagonView extends View {
         this.listener = listener;
     }
 
-
-    /**
-     * 核心判断，一个点是否在外凸多边形内
-     */
-    private class Lasso {
-        private final String TAG = "Lasso";
-        // 多边形各个点坐标
-        private float[] mPolyX, mPolyY;
-        // 有几个点
-        private int mPolySize;
-
-        /**
-         * 构造方法
-         *
-         * @param px   ,各点X坐标
-         * @param py   ,各点Y坐标
-         * @param size
-         */
-        public Lasso(float[] px, float[] py, int size) {
-            this.mPolyX = px;
-            this.mPolyY = py;
-            this.mPolySize = size;
-        }
-
-        /**
-         * 构造
-         * @param pointFs 多边形路径
-         */
-        public Lasso(List<PointF> pointFs) {
-            this.mPolySize = pointFs.size();
-            this.mPolyX = new float[this.mPolySize];
-            this.mPolyY = new float[this.mPolySize];
-
-            for (int i = 0; i < this.mPolySize; i++) {
-                this.mPolyX[i] = pointFs.get(i).x;
-                this.mPolyY[i] = pointFs.get(i).y;
-            }
-            Log.v(TAG, "lasso size:" + mPolySize);
-        }
-
-        /**
-         * 判断点是否在多边形内部
-         *
-         * @param x
-         * @param y
-         * @return
-         */
-        public boolean contains(float x, float y) {
-            boolean result = false;
-            for (int i = 0, j = mPolySize - 1; i < mPolySize; j = i++) {
-                if ((mPolyY[i] < y && mPolyY[j] >= y)
-                        || (mPolyY[j] < y && mPolyY[i] >= y)) {
-                    if (mPolyX[i] + (y - mPolyY[i]) / (mPolyY[j] - mPolyY[i])
-                            * (mPolyX[j] - mPolyX[i]) < x) {
-                        result = !result;
-                    }
-                }
-            }
-            return result;
-        }
-
-    }
 
 }
