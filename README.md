@@ -1,14 +1,15 @@
 一：自定义六边形效果图
 
- ![image](https://github.com/MhuiAbner/Android-Hexagon/blob/master/screenshots/screen.gif)
+ ![image](https://github.com/MhuiHugh/Resource/blob/master/Imags/Android-Hexagon/screen.gif)
 
+ apk 下载地址https://github.com/MhuiHugh/Resource/blob/master/Demo/Android-Hexagon-1.0.0.1-20150816.apk
  二.核心算法
  平面内一个坐标点是否在多边形内判断，使用射线法判断。从目标点出发引一条射线，看这条射线和多边形所有边的交点数目。
  如果是奇数个交点，则说明点在多边形内部；如果是偶数个交点，则说明在外部。
- ![image](https://github.com/MhuiAbner/Android-Hexagon/blob/master/screenshots/heat.jpeg)
+ ![image](https://github.com/MhuiHugh/Resource/blob/master/Imags/Android-Hexagon/heat.jpeg)
 
  算法图解：
-  ![image](https://github.com/MhuiAbner/Android-Hexagon/blob/master/screenshots/algorithm.jpeg)
+  ![image](https://github.com/MhuiHugh/Resource/blob/master/Imags/Android-Hexagon/algorithm.jpeg)
 
 参考代码：
  int pnpoly(int nvert, float *vertx, float *verty, float testx, float testy)
