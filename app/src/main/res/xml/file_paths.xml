@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <paths>
+        <external-path
+            name="download"
+            path="" />
+        <external-files-path
+            name="Download"
+            path="" />
+        <external-path
+            name="files_root"
+            path="Android/data/com.hui.catopuma/" />
+        <external-path
+            name="external_storage_root"
+            path="." />
+
+        <external-path path="" name="sdcard"/>
+    </paths>
+
+</resources>

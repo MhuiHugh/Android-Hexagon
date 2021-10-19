@@ -1,0 +1,100 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion build_version.compileSdkVersion
+    buildToolsVersion build_version.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion build_version.minSdkVersion
+        targetSdkVersion build_version.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        //保留语言种类配置
+        resConfigs "zh"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures{
+        dataBinding = true
+        // for view binding :
+        // viewBinding = true
+    }
+
+    lintOptions {
+        disable 'ExtraTranslation'
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar','*.aar'], dir: 'libs')
+
+    api libs.core_ktx
+    api libs.kotlin_stdlib
+    api libs.appcompat
+    api libs.material
+    api libs.constraint
+
+    testImplementation libs.junit
+    androidTestImplementation libs.junit_androidx
+    androidTestImplementation libs.espresso_core
+
+    api libs.jetpack_viewmodel
+    api libs.jetpack_viewmodel_ktx
+    api libs.jetpack_lifecycle_ktx
+    api libs.jetpack_lifecycle_ktx
+    api libs.jetpack_livedata_ktx
+    api libs.jetpack_datastore
+    api libs.jetpack_datastore_preferences
+
+    api libs.kotlin_coroutines_core
+
+    //---框架----
+
+    api libs.utilcodex
+    api libs.unpeek_livedata
+    api libs.smooth_navigation
+
+    api libs.gson
+    api libs.retrofit
+    api libs.okhttp_logging
+    api libs.logger
+
+    api libs.glide
+    api libs.glide_okhttp_integration
+    kapt libs.glide_compiler
+
+    //---UI-----
+    api libs.autosize
+    api libs.status_layout_manager
+    api libs.immersionbar
+    api libs.immersionbar_ktx
+    api libs.xpopup
+    api libs.background
+    api libs.x5
+    api libs.toast_utils
+    api libs.permission
+
+}

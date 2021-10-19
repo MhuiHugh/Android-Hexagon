@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".page.hexagon.HexagonActivity">
+
+    <data>
+
+        <variable
+            name="click"
+            type="com.hui.catopuma.page.hexagon.HexagonActivity.ClickProxy" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/common_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.hui.core.widget.CircleMenuLayout
+            android:id="@+id/hexagon_cml"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_400"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/id_circle_menu_item_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="@string/core_test"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/sp_30" />
+
+            <com.hui.core.widget.HexagonView
+                android:id="@+id/hexagon_test"
+                onClickWithDebouncing="@{()->click.clickHexagonTest()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:backColor="@android:color/holo_orange_light"
+                app:text="@string/core_test"
+                app:textSize="@dimen/sp_16" />
+
+            <com.hui.core.widget.HexagonView
+                android:id="@+id/hexagon_car"
+                onClickWithDebouncing="@{()->click.clickHexagonCar()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:src="@drawable/hexagon_car" />
+
+            <com.hui.core.widget.HexagonView
+                android:id="@+id/three"
+                app:backColor="@color/color_333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.hui.core.widget.HexagonView
+                android:id="@+id/four"
+                app:backColor="@color/color_666"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.hui.core.widget.HexagonView
+                android:id="@+id/five"
+                app:backColor="@color/color_999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.hui.core.widget.HexagonView
+                android:id="@+id/six"
+                app:backColor="@color/color_5F9EA0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </com.hui.core.widget.CircleMenuLayout>
+
+        <com.hui.core.widget.HorizontalScrollIndicatorView
+            android:id="@+id/hexagon_hsi"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:background="@android:color/white"
+            android:scrollbars="none"
+            android:layout_marginTop="@dimen/dp_20"
+            app:layout_constraintTop_toBottomOf="@+id/hexagon_cml"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal" />
+
+        </com.hui.core.widget.HorizontalScrollIndicatorView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

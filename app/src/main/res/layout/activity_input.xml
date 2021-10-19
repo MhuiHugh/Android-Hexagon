@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/dp_16"
+    android:paddingRight="@dimen/dp_16"
+    tools:context=".page.input.InputActivity">
+
+    <com.hui.core.widget.AmountEditText
+        android:id="@+id/input_aet"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_30"
+        android:hint="@string/test_input_amount"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.hui.core.widget.TextInputView
+        android:id="@+id/input_tiv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        app:hideStr="@string/core_input_tip"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_aet"
+        app:lineColor="@color/color_FF0000"
+        app:tipStr="@string/core_test" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:text="@string/core_test"
+        app:layout_constraintTop_toBottomOf="@+id/input_tiv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

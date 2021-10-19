@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.hui.core.base.NoViewModel" />
+
+        <variable
+            name="click"
+            type="com.hui.catopuma.page.home.HomeFragment.ClickProxy" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_16">
+
+            <TextView
+                onClickWithDebouncing="@{()->click.clickStartWeb()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_6"
+                android:text="@string/test_baidu"
+                android:textColor="@color/color_333"
+                android:textSize="@dimen/sp_14"
+                app:bl_corners_radius="@dimen/dp_4"
+                app:bl_solid_color="@color/color_999"
+                app:bl_stroke_color="@color/color_0000FF"
+                app:bl_stroke_width="@dimen/px_1" />
+
+            <TextView
+                onClickWithDebouncing="@{()->click.clickStartWebPdf()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_6"
+                android:padding="@dimen/dp_6"
+                android:text="@string/test_pdf"
+                android:textColor="@color/color_333"
+                android:textSize="@dimen/sp_14"
+                app:bl_corners_radius="@dimen/dp_4"
+                app:bl_solid_color="@color/color_999"
+                app:bl_stroke_color="@color/color_00FF00"
+                app:bl_stroke_width="@dimen/px_1" />
+
+            <TextView
+                onClickWithDebouncing="@{()->click.clickInput()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_6"
+                android:padding="@dimen/dp_6"
+                android:text="@string/test_input"
+                android:textColor="@color/color_333"
+                android:textSize="@dimen/sp_14"
+                app:bl_corners_radius="@dimen/dp_4"
+                app:bl_solid_color="@color/color_999"
+                app:bl_stroke_color="@color/color_00FF00"
+                app:bl_stroke_width="@dimen/px_1" />
+
+        </LinearLayout>
+
+        <com.hui.core.widget.DashLineView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_6"
+            app:dashLineColor="@color/common_line"
+            app:dashLineHeight="@dimen/dp_4"
+            app:dashLineSpace="@dimen/dp_2"
+            app:dashLineWidth="@dimen/dp_6" />
+
+        <com.hui.core.widget.HalfImageButton
+            onClickWithDebouncing="@{()->click.clickGoHexagon()}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_6"
+            app:ImgViewSrc="@drawable/home_zoo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_10"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dp_16"
+            android:paddingRight="@dimen/dp_16"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/home_menu_btn"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_weight="1"
+                android:background="@drawable/xml_circular_btnbg_color"
+                android:text="@string/main_menu"
+                android:textColor="@drawable/xml_circular_btntext_color" />
+
+            <ToggleButton
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_weight="1"
+                android:background="@drawable/xml_circular_toggle_btn_bg"
+                android:textOff="@string/main_toggle_btn_off"
+                android:textOn="@string/main_toggle_btn_on" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

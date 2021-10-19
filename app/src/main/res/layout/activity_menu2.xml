@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="click"
+            type="com.hui.catopuma.page.menu.Menu2Activity.ClickProxy" />
+
+    </data>
+
+    <com.hui.core.widget.circle.CircleRelativeLayout
+        android:id="@+id/circle_root_crl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                android:background="@color/color_0000FF" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                android:background="@color/color_00FF00" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_30"
+                android:background="@color/color_FF0000" />
+        </LinearLayout>
+
+        <com.hui.core.widget.circle.CircleSixLayout
+            android:id="@+id/circle_menu_csl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cs_item_margin="@dimen/dp_2"
+            app:cs_item_width="@dimen/dp_48"
+            app:cs_padding_bottom="@dimen/dp_20"
+            app:cs_right="true">
+
+            <com.hui.core.widget.circle.CircleButton
+                android:id="@+id/circle_zero_cbtn"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
+                app:cb_color="@color/color_0000FF"
+                app:cb_text="@string/core_test"
+                app:cb_text_color="@color/white"
+                app:cb_text_size="16sp" />
+
+            <com.hui.core.widget.circle.CircleButton
+                android:id="@+id/circle_back_cbtn"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
+                app:cb_color="@color/color_666"
+                app:cb_text="@string/core_back"
+                app:cb_text_color="@color/color_0000FF"
+                app:cb_text_size="16sp" />
+
+        </com.hui.core.widget.circle.CircleSixLayout>
+
+    </com.hui.core.widget.circle.CircleRelativeLayout>
+</layout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--单色圆点-->
+    <declare-styleable name="DotView">
+        <attr name="dotColor" format="color" />
+        <attr name="dotRadiusw" format="dimension" />
+    </declare-styleable>
+
+    <!--虚线 颜色，宽，高，间距-->
+    <declare-styleable name="DashLineView">
+        <attr name="dashLineColor" format="color" />
+        <attr name="dashLineHeight" format="dimension" />
+        <attr name="dashLineWidth" format="dimension" />
+        <attr name="dashLineSpace" format="dimension" />
+    </declare-styleable>
+
+    <!--ImageView 图片宽高占View的一半居中-->
+    <declare-styleable name="HalfImageButton">
+        <attr name="ImgViewSrc" format="reference" />
+    </declare-styleable>
+
+    <!--圆菜单 参数作用:圆圈背景,点击时外环宽度,字内容,字颜色,字大小-->
+    <declare-styleable name="CircleButton">
+        <attr name="cb_color" format="color" />
+        <attr name="cb_pressedRingWidth" format="dimension" />
+        <attr name="cb_text" format="string" />
+        <attr name="cb_text_color" format="color" />
+        <attr name="cb_text_size" format="dimension" />
+    </declare-styleable>
+
+    <!--圆菜单组 参数:在屏幕右边默认false,按钮组距离底部距离,item间距-->
+    <declare-styleable name="CircleSixLayout">
+        <attr name="cs_right" format="boolean" />
+        <attr name="cs_padding_bottom" format="dimension" />
+        <attr name="cs_item_margin" format="dimension" />
+        <attr name="cs_item_width" format="dimension" />
+    </declare-styleable>
+
+    <!--TextView 字体大小根据View宽高自适应 最小字体，计算精度，是否开启自适应-->
+    <declare-styleable name="AutofitTextView">
+        <!-- Minimum size of the text. -->
+        <attr name="minTextSize" format="dimension" />
+        <!-- Amount of precision used to calculate the correct text size to fit within its
+        bounds. Lower precision is more precise and takes more time. -->
+        <attr name="precision" format="float" />
+        <!-- Defines whether to automatically resize text to fit to the view's bounds. -->
+        <attr name="sizeToFit" format="boolean" />
+    </declare-styleable>
+
+    <!-- 1.控件名称   2.控件各个属性定义 3.属性类别系统定义4.属性值分别为文字，文字大小，背景色，图片 -->
+    <declare-styleable name="HexagonView">
+        <attr name="text" format="string"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="textColor" format="color"/>
+        <attr name="backColor" format="color"/>
+        <attr name="src" format="reference"/>
+    </declare-styleable>
+
+    <!--旋转菜单中心View id-->
+    <item name="id_circle_menu_item_center" type="id"/>
+
+    <!--输入框 小图标，描述，提示语，线颜色-->
+    <declare-styleable name="TextInputView">
+        <attr name="iconImg" format="reference" />
+        <attr name="tipStr" format="string" />
+        <attr name="hideStr" format="string" />
+        <attr name="lineColor" format="color" />
+    </declare-styleable>
+
+</resources>

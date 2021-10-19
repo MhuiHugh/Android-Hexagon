@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="core_back">返回</string>
+    <string name="core_ok">确定</string>
+    <string name="core_cancle">取消</string>
+    <string name="core_loading">加载中,请稍后...</string>
+    <string name="core_test">测试</string>
+    <string name="core_input_tip">请输入...</string>
+
+    <string name="core_databinding_warning">Debug 提示：此 View 未遵循 DataBinding 严格模式，存在 视图调用的 Null 安全风险</string>
+
+</resources>

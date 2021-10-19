@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.hui.core.widget.circle.CircleButton
+        android:id="@+id/widget_one_cbtn"
+        android:layout_width="@dimen/dp_48"
+        android:layout_height="@dimen/dp_48"
+        app:cb_color="@color/color_666"
+        app:cb_text="one"
+        app:cb_text_color="@color/white"
+        app:cb_text_size="16sp" />
+
+    <com.hui.core.widget.circle.CircleButton
+        android:id="@+id/widget_two_cbtn"
+        android:layout_width="@dimen/dp_48"
+        android:layout_height="@dimen/dp_48"
+        app:cb_color="@color/color_666"
+        app:cb_text="two"
+        app:cb_text_color="@color/white"
+        app:cb_text_size="16sp" />
+
+    <com.hui.core.widget.circle.CircleButton
+        android:id="@+id/widget_three_cbtn"
+        android:layout_width="@dimen/dp_48"
+        android:layout_height="@dimen/dp_48"
+        app:cb_color="@color/color_666"
+        app:cb_text="three"
+        app:cb_text_color="@color/white"
+        app:cb_text_size="16sp" />
+
+    <com.hui.core.widget.circle.CircleButton
+        android:id="@+id/widget_four_cbtn"
+        android:layout_width="@dimen/dp_48"
+        android:layout_height="@dimen/dp_48"
+        app:cb_color="@color/color_666"
+        app:cb_text="four"
+        app:cb_text_color="@color/white"
+        app:cb_text_size="16sp" />
+
+    <com.hui.core.widget.circle.CircleButton
+        android:id="@+id/widget_five_cbtn"
+        android:layout_width="@dimen/dp_48"
+        android:layout_height="@dimen/dp_48"
+        app:cb_color="@color/color_666"
+        app:cb_text="five"
+        app:cb_text_color="@color/white"
+        app:cb_text_size="16sp" />
+
+    <com.hui.core.widget.circle.CircleButton
+        android:id="@+id/widget_six_cbtn"
+        android:layout_width="@dimen/dp_48"
+        android:layout_height="@dimen/dp_48"
+        app:cb_color="@color/color_666"
+        app:cb_text="six"
+        app:cb_text_color="@color/white"
+        app:cb_text_size="16sp" />
+
+</FrameLayout>

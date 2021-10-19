@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.hui.catopuma.page.startup.StartupViewModel" />
+
+        <variable
+            name="svm"
+            type="com.hui.catopuma.viewmodel.SharedViewModel" />
+
+        <variable
+            name="constant"
+            type="com.hui.catopuma.data.Constant" />
+
+        <variable
+            name="coreCofig"
+            type="com.hui.core.utils.CoreConfig" />
+
+        <variable
+            name="click"
+            type="com.hui.catopuma.page.startup.StartupActivity.ClickProxy" />
+
+    </data>
+
+    <FrameLayout
+        visible="@{vm.showAd|vm.showWelcome}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/startup_ad_fl"
+            visible="@{vm.showAd}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/startup_ad_aimgv"
+                imageLoaderListener="@{vm}"
+                imageUrl="@{vm.ad.imageUrl}"
+                onClickWithDebouncing="@{()->click.clckAd()}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
+
+            <com.hui.catopuma.widget.TimeTextView
+                android:id="@+id/startup_ad_ttv"
+                onClickWithDebouncing="@{()->click.clickAdSkip()}"
+                time="@{3000L}"
+                timePrecision="@{vm.adTimePrecision}"
+                timeStart="@{vm.adTimeStart}"
+                timeStrId="@{vm.adStrId}"
+                timeZeroListener="@{click}"
+                visible="@{vm.adTimeStart}"
+                timeFormat="@{coreCofig.TIME_FORMAT_S}"
+                android:layout_width="@dimen/dp_90"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:layout_marginRight="@dimen/dp_20"
+                android:layout_marginBottom="@dimen/dp_90"
+                android:gravity="center"
+                android:maxLines="1"
+                android:paddingTop="@dimen/dp_6"
+                android:paddingBottom="@dimen/dp_6"
+                android:textColor="@color/color_999"
+                android:textSize="@dimen/sp_14"
+                app:bl_corners_radius="@dimen/dp_6"
+                app:bl_solid_color="@color/common_popbg"
+                tools:text="@string/startup_ad" />
+
+        </FrameLayout>
+
+        <com.youth.banner.Banner
+            android:id="@+id/startup_banner"
+            bannerAdapter="@{vm.bannerAdapter}"
+            bannerData="@{vm.bannerAds}"
+            bannerIndicator="@{vm.bannerIndicator}"
+            visible="@{vm.showWelcome}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:banner_auto_loop="false"
+            app:banner_indicator_marginBottom="@dimen/dp_20"
+            app:banner_indicator_normal_width="@dimen/dp_6"
+            app:banner_indicator_selected_width="@dimen/dp_10"
+            app:banner_indicator_space="@dimen/dp_16"
+            app:banner_infinite_loop="false" />
+
+        <TextView
+            android:id="@+id/startup_test_tv"
+            onClickWithDebouncing="@{()->click.clickTest()}"
+            android:layout_width="@dimen/dp_90"
+            android:layout_height="@dimen/dp_90"
+            android:layout_gravity="center"
+            android:background="@color/common_popbg"
+            android:gravity="center"
+            android:text="测试"
+            android:textColor="@color/color_999"
+            android:textSize="@dimen/sp_30"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</layout>
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="click"
+            type="com.hui.catopuma.page.menu.MenuActivity.ClickProxy" />
+
+    </data>
+
+    <com.hui.core.widget.circle.CircleRelativeLayout
+        android:id="@+id/circle_root_crl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+               <View
+                   android:background="@color/color_0000FF"
+                   android:layout_width="match_parent"
+                   android:layout_height="@dimen/dp_50"/>
+
+                <View
+                    android:layout_gravity="center"
+                    onClickWithDebouncing="@{()->click.clickTest()}"
+                    android:layout_marginTop="@dimen/dp_200"
+                    android:background="@color/color_999"
+                    android:layout_width="@dimen/dp_90"
+                    android:layout_height="@dimen/dp_90"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginTop="@dimen/dp_720"
+                    android:background="@color/color_FF0000" />
+            </LinearLayout>
+        </ScrollView>
+
+        <include layout="@layout/include_circle_menu" />
+
+    </com.hui.core.widget.circle.CircleRelativeLayout>
+</layout>

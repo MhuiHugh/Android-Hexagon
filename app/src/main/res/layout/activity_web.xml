@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:viewBindingIgnore="true"
+    tools:context=".page.web.WebActivity">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.hui.catopuma.page.web.WebViewModel" />
+
+        <variable
+            name="click"
+            type="com.hui.catopuma.page.web.WebActivity.ClickProxy" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/web_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.hjq.bar.TitleBar
+            titleBarLineVisible="@{vm.showTitleBarLine}"
+            titleBarListerer="@{click}"
+            titleBarRightIcon="@{vm.rightActionDrawableId}"
+            titleBarRightTitle="@{vm.rightActionString}"
+            titleBarTitle="@{vm.title}"
+            visible="@{vm.showTitleBar}"
+            titleBarLeftIcon="@{vm.leftActionDrawableId}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40" />
+
+        <ProgressBar
+            visible="@{vm.showLoadProgress}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2"
+            android:max="100"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progress="@{vm.loadProgress}" />
+
+        <com.hui.core.widget.dsbridge.DWebView
+            android:id="@+id/web_dwebview"
+            webViewUri="@{vm.webUri}"
+            webViewListener="@{click}"
+            webViewJsBridge="@{click}"
+            webViewNativeCallJsApi="@{click}"
+            webViewCallJsMethod="@{vm.callJsMethod}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</layout>

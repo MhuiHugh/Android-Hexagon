@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hexagon</string>
+
+    <!--########common#########-->
+
+    <string name="common_sure">确定</string>
+    <string name="common_cancle">取消</string>
+    <string name="common_uri_error">请求地址异常</string>
+    <string name="common_no_file">文件不存在</string>
+    <string name="common_no_error">未知异常</string>
+
+    <!--########启动页#########-->
+    <string name="startup_ad">跳过%s秒</string>
+    <string name="startup_welcome">\t启动未来\t</string>
+
+    <!--########Main##########-->
+    <string name="main_exit">再按一次退出程序</string>
+    <string name="main_home">首页</string>
+    <string name="main_me">我的</string>
+
+    <string name="main_menu">菜单组</string>
+    <string name="main_toggle_btn_on">ToggleButton On</string>
+    <string name="main_toggle_btn_off">ToggleButton Off</string>
+
+    <string name="home_color_select">选择颜色下标: %d</string>
+
+    <!--#####测试#########-->
+    <string name="test_baidu">加载百度</string>
+    <string name="test_pdf">pdf显示</string>
+    <string name="test_input">输入框</string>
+    <string name="test_input_amount">金额输入，自动千分符</string>
+
+</resources>

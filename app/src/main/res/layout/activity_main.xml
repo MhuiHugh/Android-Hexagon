@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".page.home.MainActivity">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.hui.catopuma.page.home.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        magicIndicatorViewPager="@{false}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg"
+        android:orientation="vertical">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/main_vp"
+            viewPagerAdapter="@{vm.viewPagerAdapter}"
+            viewPagerOffscreenPageLimit="@{2}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            viewPagerCurrentItem="@{vm.viewPageCurrentItem}"
+            android:layout_weight="1" />
+
+        <View
+            android:background="@color/common_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_1"/>
+
+        <net.lucode.hackware.magicindicator.MagicIndicator
+            android:id="@+id/main_magic_indicator"
+            magicIndicatorNavigator="@{vm.commonNavigator}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50" />
+
+    </LinearLayout>
+
+</layout>
