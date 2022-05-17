@@ -9,6 +9,7 @@
     <com.hui.core.widget.CircleZoomView
         android:id="@+id/circleZoomView"
         android:layout_width="@dimen/dp_200"
-        android:layout_height="@dimen/dp_200" />
+        android:layout_height="@dimen/dp_200"
+        android:layout_gravity="center" />
 
 </FrameLayout>

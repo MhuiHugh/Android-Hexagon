@@ -85,19 +85,11 @@ class CircleZoomView : FrameLayout, View.OnTouchListener {
                 if (mZoom) {
                     val dx = event.rawX - lastX
                     val dy = event.rawY - lastY
-
-                    val absX = event.rawX - pivotX
-                    val absY = event.rawY - pivotY
-                    //val zoom = judgeZoom(absX, absY)
-                    val zoom = judgeZoom(event.rawX, event.rawY)
-                    if (zoom) {
-                        val c = sqrt(dx * dx + dy * dy)
-                        val size = (lp.width + c).toInt()
-                        lp.width = size
-                        lp.height = size
-                        layoutParams = lp
-                        LogUtils.v("$TAG 缩放处理 $dx $dy ${lp.width} ${lp.height}")
-                    }
+                    val size = (lp.width + dx).toInt()
+                    lp.width = size
+                    lp.height = size
+                    layoutParams = lp
+                    LogUtils.v("$TAG 缩放处理 $dx $dy ${lp.width} ${lp.height}")
                 }
                 lastX = event.rawX
                 lastY = event.rawY
@@ -113,9 +105,10 @@ class CircleZoomView : FrameLayout, View.OnTouchListener {
     private fun init(context: Context, attrs: AttributeSet?) {
         LogUtils.v("$TAG init()")
         mContext = context
-        LayoutInflater.from(context)
+        val rootView = LayoutInflater.from(context)
             .inflate(R.layout.widget_circle_zoom_view, this, true)
-        this.setOnTouchListener(this)
+        val dotView = rootView.findViewById<DotView>(R.id.dotView)
+        dotView.setOnTouchListener(this)
     }
 
     /**
