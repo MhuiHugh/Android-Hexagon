@@ -10,6 +10,7 @@ import com.hui.catopuma.data.Constant
 import com.hui.catopuma.page.hexagon.HexagonActivity
 import com.hui.catopuma.page.input.InputActivity
 import com.hui.catopuma.page.menu.MenuActivity
+import com.hui.catopuma.page.other.CircleZoomActivity
 import com.hui.catopuma.page.web.WebActivity
 import com.hui.core.base.BaseFragment
 import com.hui.core.base.DataBindingConfig
@@ -22,9 +23,9 @@ import com.hui.core.utils.LogUtils
  *    date   : 2021/3/1716:16
  *    desc   :
  */
-class HomeFragment:BaseFragment() {
+class HomeFragment : BaseFragment() {
 
-    lateinit var mViewModel:NoViewModel
+    lateinit var mViewModel: NoViewModel
     lateinit var mainVM: MainViewModel
 
     lateinit var click: ClickProxy
@@ -32,9 +33,9 @@ class HomeFragment:BaseFragment() {
     //------------------
 
     override fun initViewModel() {
-       LogUtils.v("${Constant.TAG} initViewModel()")
-       mViewModel=getFragmentScopeViewModel(NoViewModel::class.java)
-       mainVM = getActivityScopeViewModel(MainViewModel::class.java)
+        LogUtils.v("${Constant.TAG} initViewModel()")
+        mViewModel = getFragmentScopeViewModel(NoViewModel::class.java)
+        mainVM = getActivityScopeViewModel(MainViewModel::class.java)
     }
 
     override fun initGetDataBindingConfig(): DataBindingConfig? {
@@ -54,7 +55,7 @@ class HomeFragment:BaseFragment() {
         LogUtils.v("${Constant.TAG} firstShow()")
         //跳转到菜单组
         getBinding()?.root?.findViewById<Button>(R.id.home_menu_btn)?.setOnClickListener {
-            val intent= Intent(context,MenuActivity::class.java)
+            val intent = Intent(context, MenuActivity::class.java)
             startActivity(intent)
         }
     }
@@ -65,30 +66,45 @@ class HomeFragment:BaseFragment() {
     /**
      * 点击事件
      */
-    inner class ClickProxy{
-        fun clickTest(){
+    inner class ClickProxy {
+        fun clickTest() {
 
         }
-        fun clickStartWeb(){
-           LogUtils.v("clickStartWeb() ")
-           WebActivity.startWebActivity(context,"https://www.baidu.com/",action = WebActivity.WEB_PAGE)
+
+        fun clickStartWeb() {
+            LogUtils.v("clickStartWeb() ")
+            WebActivity.startWebActivity(
+                context,
+                "https://www.baidu.com/",
+                action = WebActivity.WEB_PAGE
+            )
         }
 
-        fun clickStartWebPdf(){
-            val pdfUrl="https://raw.githubusercontent.com/MhuiHugh/Resource/master/File/Flutter.pdf"
-            WebActivity.startWebActivity(context,pdfUrl,action = WebActivity.WEB_FILE,title = "文件显示")
+        fun clickStartWebPdf() {
+            val pdfUrl =
+                "https://raw.githubusercontent.com/MhuiHugh/Resource/master/File/Flutter.pdf"
+            WebActivity.startWebActivity(
+                context,
+                pdfUrl,
+                action = WebActivity.WEB_FILE,
+                title = "文件显示"
+            )
         }
 
-        fun clickGoHexagon(){
-            val intent= Intent(context,HexagonActivity::class.java)
+        fun clickGoHexagon() {
+            val intent = Intent(context, HexagonActivity::class.java)
             startActivity(intent)
         }
 
-        fun clickInput(){
-            val intent= Intent(context,InputActivity::class.java)
+        fun clickInput() {
+            val intent = Intent(context, InputActivity::class.java)
             startActivity(intent)
         }
 
+        fun clickStartCircleZoom() {
+            val intent = Intent(context, CircleZoomActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }

@@ -29,6 +29,7 @@
     <string name="test_baidu">加载百度</string>
     <string name="test_pdf">pdf显示</string>
     <string name="test_input">输入框</string>
+    <string name="test_circle">范围缩放圆圈</string>
     <string name="test_input_amount">金额输入，自动千分符</string>
 
 </resources>

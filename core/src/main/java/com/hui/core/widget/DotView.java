@@ -24,16 +24,17 @@ public class DotView extends View {
     float radius = 0;
 
     public DotView(Context context) {
-       this(context,null);
+        this(context, null);
     }
 
     public DotView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mContext=context;
+        mContext = context;
         TypedArray typeA = context.obtainStyledAttributes(attrs,
                 R.styleable.DotView);
         color = typeA.getInteger(R.styleable.DotView_dotColor, Color.RED);
         radius = typeA.getDimension(R.styleable.DotView_dotRadiusw, 10.0f);
+        //radius = radius * 2;
         //LogUtil.v("radius:"+radius);
         typeA.recycle();
     }

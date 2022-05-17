@@ -18,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".page.other.CircleZoomActivity"
+            android:exported="false" />
+        <activity
             android:name=".page.input.InputActivity"
             android:exported="true" />
 
